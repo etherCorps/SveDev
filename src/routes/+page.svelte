@@ -11,15 +11,15 @@
             <div class="absolute inset-0">
                 <img class="object-cover w-full h-full" src="{firstArticle.cover_image}" alt="" />
             </div>
-            <div class="absolute inset-0 backdrop-blur-[1px] bg-gradient-to-r from-neutral-content via-neutral-content/50 lg:via-neutral-content/20 to-transparent"></div>
+            <div class="absolute inset-0 backdrop-blur-[2px]"></div>
 
-            <div class="relative p-4 sm:py-6 sm:px-8 sm:max-w-lg">
+            <div class="relative p-4 sm:py-6 sm:px-8 sm:max-w-lg ">
                 <div class="space-x-1">
                     {#each firstArticle.tag_list as tag}
                         <span class="px-2 py-2 text-xs font-bold tracking-widest uppercase rounded text-primary-content bg-primary">{tag}</span>
                     {/each}
                 </div>
-                <p class="mt-12 text-2xl font-bold text-primary-focus sm:text-3xl flex">
+                <p class="mt-12 text-2xl font-bold text-primary sm:text-3xl flex">
                     <a href={firstArticle.url} target="_blank" referrerpolicy="no-referrer"> {firstArticle.title}</a>
                     <svg class="w-5 h-5 text-gray-300 transition-all duration-200 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -33,7 +33,7 @@
                 <p class="mt-4 text-base font-normal leading-7 text-primary-focus/70">{firstArticle.description}</p>
                 <div class="mt-12">
                     <a
-                            href="#"
+                            href="/blog/{firstArticle.slug}"
                             title=""
                             class="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-primary-content transition-all duration-200 bg-primary border border-transparent rounded-lg hover:bg-primary-focus focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-focus"
                             role="button"
@@ -49,7 +49,7 @@
 <section class="py-6 sm:py-8 lg:py-10">
     <div class="px-2 mx-auto sm:px-3 lg:px-4">
         <div class="text-center sm:flex sm:items-end sm:space-x-16 sm:text-left">
-            <h2 class="max-w-xs text-primary font-bms text-3xl font-bold text-gray-900 sm:text-4xl shrink-0">Latest</h2>
+            <h2 class="max-w-xs font-bms text-3xl font-bold text-base-content sm:text-4xl shrink-0">Latest</h2>
         </div>
         <div class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0">
             {#each data.articles as article}

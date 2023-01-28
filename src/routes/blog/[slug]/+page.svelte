@@ -34,7 +34,7 @@
         </div>
 
         <div class="max-w-2xl mx-auto mt-7">
-            <article class="prose col-span-2 daisy-prose">
+            <article class="prose col-span-2">
                 {@html data.post.body_html}
             </article>
         </div>

@@ -10,7 +10,7 @@
 			class="relative transition-all duration-200 transform border border-gray-100 shadow overflow-hidden rounded-xl hover:shadow-lg"
 		>
 			<div class="absolute inset-0 hidden md:flex">
-				<img class="object-cover w-full h-full" src={firstArticle.cover_image} alt="" />
+				<img class="object-cover w-full h-full" src={firstArticle.cover_image} alt={firstArticle.title} />
 			</div>
 			<div class="absolute inset-0 backdrop-blur-[2px] bg-neutral/10" />
 
@@ -24,7 +24,7 @@
 					{/each}
 				</div>
 				<p class="mt-12 text-2xl font-bold text-primary sm:text-3xl flex">
-					<a href={firstArticle.url} target="_blank" referrerpolicy="no-referrer">
+					<a href={firstArticle.url} target="_blank" rel="noreferrer">
 						{firstArticle.title}</a
 					>
 					<svg
@@ -83,11 +83,11 @@
 						<img
 							class="object-cover w-full h-full transition-all duration-200 transform group-hover:scale-105"
 							src={article.cover_image}
-							alt=""
+							alt={article.title}
 						/>
 					</a>
 					<div class="flex-1 px-4 py-5 sm:p-6">
-						<a href="/blog/{article.slug}" title="" class="">
+						<a href="/blog/{article.slug}">
 							<p class="text-lg font-bold text-gray-900">{article.title}</p>
 							<p class="mt-3 text-sm font-normal leading-6 text-gray-500 line-clamp-3">
 								{article.description}
@@ -105,12 +105,12 @@
 							<a
 								href={article.url}
 								target="_blank"
-								referrerpolicy="no-referrer"
+								rel="noreferrer"
 								title=""
 								class=""
 								role="button"
 							>
-								<img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" class="w-5 h-5" />
+								<img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" class="w-5 h-5" alt="dev.to link"/>
 							</a>
 						</div>
 					</div>

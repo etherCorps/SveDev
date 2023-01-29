@@ -16,7 +16,7 @@
 				{#if userData.github_username}
 					<a
 						target="_blank"
-						referrerpolicy="no-referrer"
+						rel="noreferrer"
 						href="http://github.com/{userData.github_username}"
 					>
 						<svg

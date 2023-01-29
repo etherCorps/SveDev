@@ -33,7 +33,7 @@
 			>
 				{data.post.title}
 			</h2>
-			<img class="object-cover w-full h-full rounded-lg" src={data.post.cover_image} alt="" />
+			<img class="object-cover w-full h-full rounded-lg" src={data.post.cover_image} alt={data.post.title} />
 		</div>
 
 		<div class="max-w-2xl mx-auto mt-7">

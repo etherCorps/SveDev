@@ -8,9 +8,7 @@
 	<div class="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
 		<nav class="flex items-center justify-between">
 			<a href="/" class="flex shrink-0">
-				<p
-					class="font-bss font-bold text-xl uppercase "
-				>
+				<p class="font-bss font-bold text-xl uppercase ">
 					{PUBLIC_APP_NAME} Blog
 				</p>
 			</a>

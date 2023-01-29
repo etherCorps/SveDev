@@ -1,14 +1,18 @@
-<script>
-	import { onMount } from 'svelte';
+<script lang="ts">
 	import { themes } from '$lib/themeData';
-	import { slide } from 'svelte/transition';
-	import { themeChange } from 'theme-change';
-	onMount(() => {
-		themeChange(false);
-	});
+	import { enhance, type SubmitFunction } from '$app/forms';
+	import { page } from '$app/stores';
+
 	export let dropdownClasses = '';
-	export let btnClasses = 'btn-primary';
+	export let btnClasses = 'btn-base-content';
 	export let contentClasses = 'mt-16';
+
+	const submitUpdateTheme: SubmitFunction = ({ action }) => {
+		const theme = action.searchParams.get('theme');
+		if (theme) {
+			document.documentElement.setAttribute('data-theme', theme);
+		}
+	};
 </script>
 
 <div title="Change Theme" class={`dropdown dropdown-end ${dropdownClasses}`}>
@@ -42,30 +46,26 @@
 	>
 		<div class="grid grid-cols-1 gap-3 p-3" tabindex="0">
 			{#each themes as theme}
-				<div
-					class="outline-base-content overflow-hidden rounded-lg outline outline-2 outline-offset-2"
-					data-set-theme={theme.id}
-					data-act-class="outline"
-				>
+				<form method="POST" use:enhance={submitUpdateTheme}>
 					<div
-						data-theme={theme.id}
-						class="bg-base-100 text-base-content w-full cursor-pointer font-sans"
+						class="outline-base-content overflow-hidden rounded-lg outline outline-2 outline-offset-2"
+						data-act-class="outline"
 					>
-						<div class="grid grid-cols-5 grid-rows-3">
-							<div class="col-span-5 row-span-3 row-start-1 flex gap-1 py-3 px-4">
-								<div class="flex-grow text-sm font-bold capitalize">
-									{theme.id}
-								</div>
-								<div class="flex flex-shrink-0 flex-wrap gap-1">
-									<div class="bg-primary w-2 rounded" />
-									<div class="bg-secondary w-2 rounded" />
-									<div class="bg-accent w-2 rounded" />
-									<div class="bg-neutral w-2 rounded" />
+						<button
+							type="submit"
+							formaction="/?/setTheme&theme={theme.id}&redirectTo={$page.url.pathname}"
+							class="text-base-content w-full cursor-pointer font-sans"
+						>
+							<div class="grid grid-cols-5 grid-rows-3">
+								<div class="col-span-5 row-span-3 row-start-1 flex gap-1 py-3 px-4">
+									<div class="flex-grow text-sm font-bold capitalize">
+										{theme.name}
+									</div>
 								</div>
 							</div>
-						</div>
+						</button>
 					</div>
-				</div>
+				</form>
 			{/each}
 			<a
 				class="outline-base-content overflow-hidden rounded-lg"

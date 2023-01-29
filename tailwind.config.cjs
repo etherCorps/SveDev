@@ -24,9 +24,5 @@ module.exports = {
 			}
 		}
 	},
-	plugins: [require('@tailwindcss/typography'), require('daisyui')],
-	daisyui: {
-		styled: false,
-		base: false
-	}
+	plugins: [require('@tailwindcss/typography'), require('daisyui')]
 };

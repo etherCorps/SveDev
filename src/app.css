@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .js-fullscreen-code-action {
-    @apply hidden;
+	@apply hidden;
 }
 
 .article-body-image-wrapper {
-    @apply rounded-3xl;
+	@apply rounded-3xl;
 }

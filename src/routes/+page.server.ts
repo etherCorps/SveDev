@@ -16,9 +16,7 @@ export const load = (async ({ fetch }) => {
 	let firstPost = [];
 	let articles = [];
 	let trending = [];
-	let errors = true;
 	if (response.ok) {
-		errors = false;
 		userArticles = await response.json();
 		const userArticlesCopy = [...userArticles];
 		userArticlesCopy.sort((a, b) => {
@@ -32,7 +30,7 @@ export const load = (async ({ fetch }) => {
 		firstPost,
 		articles,
 		trending,
-		errors
+		errors: !response.ok
 	};
 }) satisfies PageServerLoad;
 

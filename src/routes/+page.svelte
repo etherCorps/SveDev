@@ -5,7 +5,12 @@
 </script>
 
 {#if data.errors}
-	h
+	<div class="alert shadow-lg">
+		<div>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+			<span>No Content Found</span>
+		</div>
+	</div>
 {:else}
 	<section id="first-article" class="py-6 sm:py-8 lg:py-10">
 		<div class="px-2 mx-auto sm:px-6 lg:px-4">
@@ -19,17 +24,17 @@
 						alt={firstArticle.title}
 					/>
 				</div>
-				<div class="absolute inset-0 backdrop-blur-[2px] bg-neutral/10" />
+				<div class="absolute inset-0 backdrop-blur-[2px] bg-neutral-content/40" />
 
 				<div class="relative p-4 sm:py-6 sm:px-8 sm:max-w-lg ">
 					<div class="space-x-1">
-							<span
-									class="px-2 py-2 text-xs font-bold tracking-widest uppercase rounded text-secondary-content bg-secondary"
+						<span
+							class="px-2 py-2 text-xs font-bold tracking-widest uppercase rounded text-primary-content bg-primary"
 							>Latest</span
-							>
+						>
 						{#each firstArticle.tag_list as tag}
 							<span
-								class="px-2 py-2 text-xs font-bold tracking-widest uppercase rounded text-secondary-content bg-secondary"
+								class="px-2 py-2 text-xs font-bold tracking-widest uppercase rounded text-primary-content bg-primary"
 								>{tag}</span
 							>
 						{/each}
@@ -51,12 +56,12 @@
 							<polyline points="8 7 17 7 17 16" />
 						</svg>
 					</p>
-					<p class="mt-4 text-sm font-medium text-primary-focus/70">
+					<p class="mt-4 text-sm font-medium text-primary/70">
 						{new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(
 							new Date(firstArticle.published_at)
 						)}
 					</p>
-					<p class="mt-4 text-base font-normal leading-7 text-primary-focus/70">
+					<p class="mt-4 text-base font-normal leading-7 text-primary/70">
 						{firstArticle.description}
 					</p>
 					<div class="mt-12">
@@ -143,17 +148,17 @@
 				</h2>
 			</div>
 			<div
-					class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0"
+				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0"
 			>
 				{#each data.articles as article}
 					<div
-							class="flex flex-col overflow-hidden transition-all duration-200 transform bg-white border border-gray-100 shadow group rounded-xl hover:shadow-lg hover:-translate-y-1"
+						class="flex flex-col overflow-hidden transition-all duration-200 transform bg-white border border-gray-100 shadow group rounded-xl hover:shadow-lg hover:-translate-y-1"
 					>
 						<a href="/blog/{article.slug}" title="" class="flex shrink-0 aspect-w-4 aspect-h-3">
 							<img
-									class="object-cover w-full h-full transition-all duration-200 transform group-hover:scale-105"
-									src={article.cover_image}
-									alt={article.title}
+								class="object-cover w-full h-full transition-all duration-200 transform group-hover:scale-105"
+								src={article.cover_image}
+								alt={article.title}
 							/>
 						</a>
 						<div class="flex-1 px-4 py-5 sm:p-6">
@@ -175,17 +180,17 @@
 								</div>
 
 								<a
-										href={article.url}
-										target="_blank"
-										rel="noreferrer"
-										title=""
-										class=""
-										role="button"
+									href={article.url}
+									target="_blank"
+									rel="noreferrer"
+									title=""
+									class=""
+									role="button"
 								>
 									<img
-											src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg"
-											class="w-5 h-5"
-											alt="dev.to link"
+										src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg"
+										class="w-5 h-5"
+										alt="dev.to link"
 									/>
 								</a>
 							</div>
@@ -195,5 +200,4 @@
 			</div>
 		</div>
 	</section>
-
 {/if}

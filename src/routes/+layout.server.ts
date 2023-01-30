@@ -6,6 +6,7 @@ export const load = (async ({ fetch }) => {
 	const userData = await (
 		await fetch(`${baseAPI}/users/me`, {
 			headers: {
+				accept: 'application/vnd.forem.api-v1+json',
 				'Content-Type': 'application/json',
 				'api-key': DEV_TO_API_KEY as string
 			}

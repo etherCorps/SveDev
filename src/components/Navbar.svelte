@@ -14,11 +14,7 @@
 			</a>
 			<div class="flex space-x-2 items-center">
 				{#if userData.github_username}
-					<a
-						target="_blank"
-						rel="noreferrer"
-						href="http://github.com/{userData.github_username}"
-					>
+					<a target="_blank" rel="noreferrer" href="http://github.com/{userData.github_username}">
 						<svg
 							viewBox="0 0 24 24"
 							width="24px"

@@ -1,6 +1,40 @@
 import { redirect } from '@sveltejs/kit';
-import type { Actions } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 import { dev } from '$app/environment';
+import { DEV_TO_API_KEY } from '$env/static/private';
+import { articleAPI } from '$lib/constants';
+
+export const load = (async ({ fetch }) => {
+	const response = await fetch(`${articleAPI}/me/published`, {
+		headers: {
+			'api-key': DEV_TO_API_KEY as string,
+			accept: 'application/vnd.forem.api-v1+json',
+			'Content-Type': 'application/json'
+		}
+	});
+	let userArticles = [];
+	let firstPost = [];
+	let articles = [];
+	let trending = [];
+	let errors = true;
+	if (response.ok) {
+		errors = false;
+		userArticles = await response.json();
+		const userArticlesCopy = [...userArticles];
+		userArticlesCopy.sort((a, b) => {
+			return b.page_views_count - a.page_views_count;
+		});
+		trending = userArticlesCopy.splice(0, 4);
+		firstPost = userArticles.splice(0, 1)[0];
+		articles = userArticles.splice(0, 4);
+	}
+	return {
+		firstPost,
+		articles,
+		trending,
+		errors
+	};
+}) satisfies PageServerLoad;
 
 export const actions: Actions = {
 	setTheme: async ({ url, cookies }) => {

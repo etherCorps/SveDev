@@ -1,18 +1,8 @@
 import type { LayoutServerLoad } from './$types';
-import { baseAPI } from '../lib/constants';
-import { DEV_TO_API_KEY } from '$env/static/private';
+import { getMyDevToDetails } from '../lib/devtoApi';
 
-export const load = (async ({ fetch }) => {
-	const userData = await (
-		await fetch(`${baseAPI}/users/me`, {
-			headers: {
-				accept: 'application/vnd.forem.api-v1+json',
-				'Content-Type': 'application/json',
-				'api-key': DEV_TO_API_KEY as string
-			}
-		})
-	).json();
+export const load = (async () => {
 	return {
-		user: userData
+		user: getMyDevToDetails()
 	};
 }) satisfies LayoutServerLoad;

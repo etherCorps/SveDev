@@ -1,36 +1,31 @@
 import { redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { dev } from '$app/environment';
-import { DEV_TO_API_KEY } from '$env/static/private';
-import { articleAPI } from '$lib/constants';
+import { getMyArticles } from '$lib/devtoApi';
+// a.tag_list.forEach(tag => {
+// 	categories.add(tag)
+// });
 
-export const load = (async ({ fetch }) => {
-	const response = await fetch(`${articleAPI}/me/published`, {
-		headers: {
-			'api-key': DEV_TO_API_KEY as string,
-			accept: 'application/vnd.forem.api-v1+json',
-			'Content-Type': 'application/json'
-		}
+const trendingArticles = async (articles: any) => {
+	articles.sort((a: any, b: any) => {
+		return b.page_views_count - a.page_views_count;
 	});
-	let userArticles = [];
-	let firstPost = [];
-	let articles = [];
-	let trending = [];
-	if (response.ok) {
-		userArticles = await response.json();
-		const userArticlesCopy = [...userArticles];
-		userArticlesCopy.sort((a, b) => {
-			return b.page_views_count - a.page_views_count;
-		});
-		trending = userArticlesCopy.splice(0, 4);
-		firstPost = userArticles.splice(0, 1)[0];
-		articles = userArticles.splice(0, 4);
-	}
+	return articles.splice(0, 4);
+};
+
+const getFirstFiveArticles = (articles = []) => {
+	const firstArticle = articles.splice(0, 1)[0];
+	const latestFourArticles = articles.splice(0, 4);
+	return { firstArticle, latestFourArticles };
+};
+export const load = (async () => {
+	const { userArticles, userArticlesCopy, errors } = await getMyArticles();
+	const { firstArticle, latestFourArticles } = getFirstFiveArticles(userArticles);
 	return {
-		firstPost,
-		articles,
-		trending,
-		errors: !response.ok
+		firstPost: firstArticle,
+		articles: latestFourArticles,
+		trending: trendingArticles(userArticlesCopy),
+		errors
 	};
 }) satisfies PageServerLoad;
 

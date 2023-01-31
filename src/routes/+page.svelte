@@ -40,7 +40,7 @@
 				<div class="relative p-4 sm:py-6 sm:px-8 sm:max-w-lg ">
 					<div class="space-x-1">
 						<span
-							class="px-2 py-2 text-xs font-bold tracking-widest uppercase rounded text-primary-content bg-accent"
+							class="px-2 py-2 text-xs font-bold tracking-widest uppercase rounded text-accent-content bg-accent"
 							>New</span
 						>
 						{#each firstArticle.tag_list as tag}

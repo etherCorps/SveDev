@@ -9,3 +9,22 @@
 .article-body-image-wrapper {
 	@apply rounded-3xl;
 }
+
+.table-of-contents {
+	z-index: 1;
+	position: fixed;
+	left: calc(50% + 400px);
+	top: 18rem;
+	max-height: 50vh;
+	width: 310px;
+	padding: 0.75rem;
+	margin: 0.75rem 0;
+	font-size: 1rem;
+	line-height: 1.75rem;
+}
+
+@layer base {
+	html {
+		@apply scroll-smooth;
+	}
+}

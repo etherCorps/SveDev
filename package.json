@@ -16,6 +16,7 @@
 		"@sveltejs/kit": "^1.0.0",
 		"@tailwindcss/typography": "^0.5.9",
 		"autoprefixer": "^10.4.13",
+		"axios": "^1.2.6",
 		"daisyui": "^2.49.0",
 		"postcss": "^8.4.21",
 		"prettier": "^2.8.0",

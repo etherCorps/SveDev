@@ -2,9 +2,16 @@ import { redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { dev } from '$app/environment';
 import { getMyArticles } from '$lib/devtoApi';
-// a.tag_list.forEach(tag => {
-// 	categories.add(tag)
-// });
+
+
+const randomEditorsChoice = async (articleList: any) => {
+	articleList = [...articleList]
+	for (let i = articleList.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[articleList[i], articleList[j]] = [articleList[j], articleList[i]];
+	}
+	return articleList.splice(0, 4);
+};
 
 const trendingArticles = async (articles: any) => {
 	articles.sort((a: any, b: any) => {
@@ -25,6 +32,7 @@ export const load = (async () => {
 		firstPost: firstArticle,
 		articles: latestFourArticles,
 		trending: trendingArticles(userArticlesCopy),
+		authorsPick: randomEditorsChoice(userArticlesCopy),
 		errors
 	};
 }) satisfies PageServerLoad;

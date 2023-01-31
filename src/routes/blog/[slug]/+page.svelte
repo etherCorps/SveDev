@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { balancer } from 'svelte-action-balancer';
-	import type {PageServerData} from "./$types";
+	import type { PageServerData } from './$types';
 
 	export let data: PageServerData;
 

@@ -93,9 +93,9 @@
 	<section class="py-6 sm:py-8 lg:py-10">
 		<div class="px-2 mx-auto sm:px-3 lg:px-4">
 			<div class="text-center sm:flex sm:items-end sm:space-x-16 sm:text-left">
-					<h2 class="max-w-xs font-bms text-3xl font-bold text-base-content sm:text-4xl shrink-0">
-						Popular
-					</h2>
+				<h2 class="max-w-xs font-bms text-3xl font-bold text-base-content sm:text-4xl shrink-0">
+					Popular
+				</h2>
 			</div>
 			<div
 				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0"
@@ -149,7 +149,6 @@
 				{/each}
 			</div>
 		</div>
-
 	</section>
 
 	<section class="py-6 sm:py-8 lg:py-10">
@@ -209,10 +208,24 @@
 						</div>
 					</div>
 				{/each}
-				<a href="/blog" class="flex px-2 py-1 rounded-xl items-center space-x-1 group hover:bg-neutral hover:text-neutral-content transition duration-500 ease-in-out max-w-fit">
+				<a
+					href="/blog"
+					class="flex px-2 py-1 rounded-xl items-center space-x-1 group hover:bg-neutral hover:text-neutral-content transition duration-500 ease-in-out max-w-fit"
+				>
 					<span class="">See more articles</span>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="w-6 h-6"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+						/>
 					</svg>
 				</a>
 			</div>
@@ -227,17 +240,17 @@
 				</h2>
 			</div>
 			<div
-					class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0"
+				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0"
 			>
 				{#each data.authorsPick as article}
 					<div
-							class="flex flex-col overflow-hidden transition-all duration-200 transform bg-white border border-gray-100 shadow group rounded-xl hover:shadow-lg hover:-translate-y-1"
+						class="flex flex-col overflow-hidden transition-all duration-200 transform bg-white border border-gray-100 shadow group rounded-xl hover:shadow-lg hover:-translate-y-1"
 					>
 						<a href="/blog/{article.slug}" title="" class="flex shrink-0 aspect-w-4 aspect-h-3">
 							<img
-									class="object-cover w-full h-full transition-all duration-200 transform group-hover:scale-105"
-									src={article.cover_image}
-									alt={article.title}
+								class="object-cover w-full h-full transition-all duration-200 transform group-hover:scale-105"
+								src={article.cover_image}
+								alt={article.title}
 							/>
 						</a>
 						<div class="flex-1 px-4 py-5 sm:p-6">
@@ -259,31 +272,44 @@
 								</div>
 
 								<a
-										href={article.url}
-										target="_blank"
-										rel="noreferrer"
-										title=""
-										class=""
-										role="button"
+									href={article.url}
+									target="_blank"
+									rel="noreferrer"
+									title=""
+									class=""
+									role="button"
 								>
 									<img
-											src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg"
-											class="w-5 h-5"
-											alt="dev.to link"
+										src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg"
+										class="w-5 h-5"
+										alt="dev.to link"
 									/>
 								</a>
 							</div>
 						</div>
 					</div>
 				{/each}
-				<a href="/blog" class="flex px-2 py-1 rounded-xl items-center space-x-1 group hover:bg-neutral hover:text-neutral-content transition duration-500 ease-in-out max-w-fit">
+				<a
+					href="/blog"
+					class="flex px-2 py-1 rounded-xl items-center space-x-1 group hover:bg-neutral hover:text-neutral-content transition duration-500 ease-in-out max-w-fit"
+				>
 					<span class="">See more articles</span>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="w-6 h-6"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+						/>
 					</svg>
 				</a>
 			</div>
 		</div>
 	</section>
-
 {/if}

@@ -13,16 +13,21 @@ const apiInstance = axios.create({
 });
 
 export const getMyDevToDetails = async () => {
-	const { data, status, statusText } = await apiInstance.get('users/me');
+	const { data } = await apiInstance.get('users/me');
 	return data;
 };
 
 export const getMyArticles = async () => {
-	const { data, status, statusText } = await apiInstance.get('articles/me/published');
+	const { data, status } = await apiInstance.get('articles/me/published');
 	return { userArticles: data, userArticlesCopy: [...data], errors: !(status === 200) };
 };
 
 export const getArticleBySlug = async (slug: string) => {
 	const { data } = await apiInstance.get(`articles/${DevToUsername}/${slug}`);
+	return data;
+};
+
+export const getMyAllArticles = async () => {
+	const { data } = await apiInstance.get(`articles/me/published?page=1&per_page=500`);
 	return data;
 };

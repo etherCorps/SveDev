@@ -2,21 +2,29 @@
 	import { themes } from '$lib/themeData';
 	import { enhance, type SubmitFunction } from '$app/forms';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 
 	export let dropdownClasses = '';
 	export let btnClasses = 'btn-base-content';
 	export let contentClasses = 'mt-16';
-
+	let currentTheme;
+	const getTheme = async () => {
+		return currentTheme;
+	};
+	onMount(() => {
+		currentTheme = document.documentElement.getAttribute('data-theme');
+	});
 	const submitUpdateTheme: SubmitFunction = ({ action }) => {
 		const theme = action.searchParams.get('theme');
 		if (theme) {
 			document.documentElement.setAttribute('data-theme', theme);
+			currentTheme = document.documentElement.getAttribute('data-theme');
 		}
 	};
 </script>
 
 <div title="Change Theme" class={`dropdown dropdown-end ${dropdownClasses}`}>
-	<div tabindex="0" class={`btn gap-1 normal-case ${btnClasses}`}>
+	<div tabindex="0" class={`btn gap-1 capitalize ${btnClasses}`}>
 		<svg
 			width="20"
 			height="20"
@@ -31,7 +39,11 @@
 				d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
 			/></svg
 		>
-		Theme
+		{#await getTheme()}
+			Theme
+		{:then theme}
+			{currentTheme}
+		{/await}
 		<svg
 			width="12px"
 			height="12px"

@@ -3,9 +3,8 @@ import type { Actions, PageServerLoad } from './$types';
 import { dev } from '$app/environment';
 import { getMyArticles } from '$lib/devtoApi';
 
-
 const randomEditorsChoice = async (articleList: any) => {
-	articleList = [...articleList]
+	articleList = [...articleList];
 	for (let i = articleList.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));
 		[articleList[i], articleList[j]] = [articleList[j], articleList[i]];

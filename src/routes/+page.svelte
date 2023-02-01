@@ -97,9 +97,7 @@
 					Popular
 				</h2>
 			</div>
-			<div
-				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-0"
-			>
+			<div class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-0">
 				{#each data.trending as article}
 					<div
 						class="flex flex-col overflow-hidden transition-all duration-200 transform bg-white border border-gray-100 shadow group rounded-xl hover:shadow-lg hover:-translate-y-1"
@@ -158,9 +156,7 @@
 					Latest
 				</h2>
 			</div>
-			<div
-				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-0"
-			>
+			<div class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-0">
 				{#each data.articles.latestFourArticles as article}
 					<div
 						class="flex flex-col overflow-hidden transition-all duration-200 transform bg-white border border-gray-100 shadow group rounded-xl hover:shadow-lg hover:-translate-y-1"
@@ -239,9 +235,7 @@
 					Author's Pick
 				</h2>
 			</div>
-			<div
-				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-0"
-			>
+			<div class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-0">
 				{#each data.authorsPick as article}
 					<div
 						class="flex flex-col overflow-hidden transition-all duration-200 transform bg-white border border-gray-100 shadow group rounded-xl hover:shadow-lg hover:-translate-y-1"

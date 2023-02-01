@@ -19,7 +19,7 @@ export const getMyDevToDetails = async () => {
 
 export const getMyArticles = async () => {
 	const { data, status } = await apiInstance.get('articles/me/published');
-	return { userArticles: data, userArticlesCopy: [...data], errors: !(status === 200) };
+	return { userArticles: data, errors: !(status === 200) };
 };
 
 export const getArticleBySlug = async (slug: string) => {

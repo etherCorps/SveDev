@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageServerData } from './$types';
 	export let data: PageServerData;
-	const firstArticle = data.firstPost;
+	const firstArticle = data.articles.firstArticle;
 </script>
 
 {#if data.errors}
@@ -38,7 +38,7 @@
 				<div class="absolute inset-0 backdrop-blur-[2px] bg-neutral-content/40" />
 
 				<div class="relative p-4 sm:py-6 sm:px-8 sm:max-w-lg ">
-					<div class="space-x-1">
+					<div class="space-x-1 flex">
 						<span
 							class="px-2 py-2 text-xs font-bold tracking-widest uppercase rounded text-accent-content bg-accent"
 							>New</span
@@ -98,7 +98,7 @@
 				</h2>
 			</div>
 			<div
-				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0"
+				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-0"
 			>
 				{#each data.trending as article}
 					<div
@@ -159,9 +159,9 @@
 				</h2>
 			</div>
 			<div
-				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0"
+				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-0"
 			>
-				{#each data.articles as article}
+				{#each data.articles.latestFourArticles as article}
 					<div
 						class="flex flex-col overflow-hidden transition-all duration-200 transform bg-white border border-gray-100 shadow group rounded-xl hover:shadow-lg hover:-translate-y-1"
 					>
@@ -240,7 +240,7 @@
 				</h2>
 			</div>
 			<div
-				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0"
+				class="grid grid-cols-1 gap-6 px-8 mt-6 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4 sm:px-0"
 			>
 				{#each data.authorsPick as article}
 					<div

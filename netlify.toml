@@ -1,0 +1,5 @@
+[template.environment]
+    PUBLIC_APP_NAME="Your Show Name"
+    DEV_TO_API_KEY = "Dev.to secret Key"
+    PUBLIC_DEV_TO_USERNAME = "Dev.to username"
+

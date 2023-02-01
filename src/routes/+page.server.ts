@@ -29,7 +29,7 @@ const getFirstFiveArticles = (articles = []) => {
 export const load = (async ({ setHeaders }) => {
 	const { userArticles, errors } = await getMyArticles();
 	setHeaders({
-		'Cache-Control': `max-age=0, s-maxage=${60 * 60 * 24}`
+		'Cache-Control': `public max-age=0, s-maxage=${60 * 60}`
 	});
 	return {
 		articles: getFirstFiveArticles(userArticles),

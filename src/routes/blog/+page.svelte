@@ -1,6 +1,5 @@
 <script>
 	export let data;
-	console.log(data.posts[0]);
 </script>
 
 <div class="relative px-4 sm:px-8 lg:px-12 mt-6">

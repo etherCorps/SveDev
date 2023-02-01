@@ -20,7 +20,6 @@
 				href: `#${h2.innerText}`
 			};
 		});
-		console.log(headings);
 	});
 	// till here
 </script>

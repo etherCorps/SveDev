@@ -8,7 +8,7 @@
 
 It's a blog template for the writer who writes on Dev.to and want to have their own blog website without to worry about tech stuff and if you want to customize it you can. We use Dev.to(Forem) Api to interact with SveDev's frontend which uses Svelte and SvelteKit.
 
-![SveDev](https://raw.githubusercontent.com/etherCorps/sveltekit-devto-blog/main/static/BlogTemplateImage.jpeg)
+[![SveDev](https://raw.githubusercontent.com/etherCorps/sveltekit-devto-blog/main/static/BlogTemplateImage.jpeg)](https://www.youtube.com/watch?v=lZ__u7B8v-c)
 
 ## Tech Stack
 

@@ -6,7 +6,7 @@
 <div class="relative px-4 sm:px-8 lg:px-12 mt-6">
 	<div class="mx-auto max-w-2xl lg:max-w-5xl">
 		<header class="max-w-2xl">
-			<h1 class="text-4xl font-bms font-bold tracking-tight text-primary-focus sm:text-5xl">
+			<h1 class="text-4xl font-bms font-bold tracking-tight text-primary sm:text-5xl">
 				Crafting digital experiences, <br sm:hidden /> one line of code at a time.
 			</h1>
 			<p class="mt-6 text-base text-base-content">
@@ -27,7 +27,9 @@
 									<a href="/blog/{post.slug}"
 										><span
 											class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"
-										/><span class="relative z-10 group-hover:text-primary-content">{post.title}</span></a
+										/><span class="relative z-10 group-hover:text-primary-content"
+											>{post.title}</span
+										></a
 									>
 								</h2>
 								<time

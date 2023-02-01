@@ -24,9 +24,12 @@ const getFirstFiveArticles = (articles = []) => {
 	const latestFourArticles = articles.splice(0, 4);
 	return { firstArticle, latestFourArticles };
 };
-export const load = (async () => {
+export const load = (async ({ setHeaders }) => {
 	const { userArticles, userArticlesCopy, errors } = await getMyArticles();
 	const { firstArticle, latestFourArticles } = getFirstFiveArticles(userArticles);
+	setHeaders({
+		'Cache-Control': `max-age=0, s-maxage=${60 * 60 * 24}`
+	});
 	return {
 		firstPost: firstArticle,
 		articles: latestFourArticles,

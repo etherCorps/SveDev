@@ -28,9 +28,9 @@ const getFirstFiveArticles = (articles = []) => {
 };
 export const load = (async ({ setHeaders }) => {
 	const { userArticles, errors } = await getMyArticles();
-	setHeaders({
-		'Cache-Control': `public max-age=0, s-maxage=${60 * 60}`
-	});
+	// setHeaders({
+	// 	'Cache-Control': `public max-age=0, s-maxage=${60 * 60}`
+	// });
 	return {
 		articles: getFirstFiveArticles(userArticles),
 		trending: trendingArticles(userArticles),

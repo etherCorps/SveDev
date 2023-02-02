@@ -1,6 +1,5 @@
 <script>
-
-import {siteName} from "$lib/constants";
+	import { siteName } from '$lib/constants';
 </script>
 
 <footer class="mt-16">

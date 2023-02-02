@@ -1,6 +1,23 @@
 <script>
+	import { siteName, siteDescription } from '$lib/constants';
+	import { page } from '$app/stores';
 	export let data;
 </script>
+
+<svelte:head>
+	<title>{siteName} | Blog</title>
+	<meta content={siteDescription} name="description" />
+	<meta content={siteName} property="og:title" />
+	<meta content="{$page.url.origin}/og" property="og:image" />
+	<meta content={$page.url.origin} property="og:url" />
+	<meta content={siteDescription} property="og:description" />
+	<meta content={siteName} property="og:site_name" />
+
+	<meta content="summary_large_image" name="twitter:card" />
+	<meta content={siteName} name="twitter:title" />
+	<meta content={siteDescription} name="twitter:description" />
+	<meta content="{$page.url.origin}/og" name="twitter:image" />
+</svelte:head>
 
 <div class="relative px-4 sm:px-8 lg:px-12 mt-6">
 	<div class="mx-auto max-w-2xl lg:max-w-5xl">

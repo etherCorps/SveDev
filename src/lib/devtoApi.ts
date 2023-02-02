@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { DEV_TO_API_KEY } from '$env/static/private';
-import { DevToUsername } from './constants';
+import { devToUsername } from './constants';
 
 const apiInstance = axios.create({
 	baseURL: 'https://dev.to/api/',
@@ -23,7 +23,7 @@ export const getMyArticles = async () => {
 };
 
 export const getArticleBySlug = async (slug: string) => {
-	const { data } = await apiInstance.get(`articles/${DevToUsername}/${slug}`);
+	const { data } = await apiInstance.get(`articles/${devToUsername}/${slug}`);
 	return data;
 };
 

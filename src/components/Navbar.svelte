@@ -1,6 +1,6 @@
 <script>
 	import ThemeSwitcher from './ThemeSwitcher.svelte';
-	import { PUBLIC_APP_NAME } from '$env/static/public';
+	import { siteName } from '$lib/constants';
 	export let userData;
 </script>
 
@@ -9,7 +9,7 @@
 		<nav class="flex items-center justify-between">
 			<a href="/" class="flex shrink-0">
 				<p class="font-bss font-bold text-xl uppercase ">
-					{PUBLIC_APP_NAME} Blog
+					{siteName} Blog
 				</p>
 			</a>
 			<div class="flex space-x-2 items-center">

@@ -30,7 +30,7 @@
 	<title>{siteName} | {data.post.title}</title>
 	<meta content={data.post.description} name="description" />
 	<meta content={data.post.title} property="og:title" />
-	<meta content="{data.post.cover_image}/og" property="og:image" />
+	<meta content="{data.post.cover_image}" property="og:image" />
 	<meta content={$page.url.origin} property="og:url" />
 	<meta content={data.post.description} property="og:description" />
 	<meta content={siteName} property="og:site_name" />

@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from './$types';
-import { getMyDevToDetails } from '../lib/devtoApi';
+import { getMyDevToDetails } from '$lib/devtoApi';
 
 export const load = (async () => {
 	return {

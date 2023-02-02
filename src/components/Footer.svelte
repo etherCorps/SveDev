@@ -1,5 +1,6 @@
 <script>
-	import { PUBLIC_APP_NAME } from '$env/static/public';
+
+import {siteName} from "$lib/constants";
 </script>
 
 <footer class="mt-16">
@@ -17,7 +18,7 @@
 							</div>
 							<p class="text-sm text-base-content">
 								© <!-- -->2023<!-- -->
-								{PUBLIC_APP_NAME}. All rights reserved.
+								{siteName}. All rights reserved.
 							</p>
 						</div>
 					</div>

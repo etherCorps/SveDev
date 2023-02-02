@@ -10,7 +10,7 @@
 	<title>{siteName} | Home</title>
 	<meta content={siteDescription} name="description" />
 	<meta content={siteName} property="og:title" />
-	<meta content="{$page.url.origin}/og" property="og:image" />
+	<meta content="{$page.url.origin}/og.png" property="og:image" />
 	<meta content={$page.url.origin} property="og:url" />
 	<meta content={siteDescription} property="og:description" />
 	<meta content={siteName} property="og:site_name" />
@@ -18,7 +18,7 @@
 	<meta content="summary_large_image" name="twitter:card" />
 	<meta content={siteName} name="twitter:title" />
 	<meta content={siteDescription} name="twitter:description" />
-	<meta content="{$page.url.origin}/og" name="twitter:image" />
+	<meta content="{$page.url.origin}/og.png" name="twitter:image" />
 </svelte:head>
 {#if data.errors}
 	<div class="alert shadow-lg">

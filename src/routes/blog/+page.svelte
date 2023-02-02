@@ -47,12 +47,14 @@
 				placeholder="Search articles"
 				class="input input-bordered w-full input-md"
 				on:input={async () => {
-					const hits = await searchArticles(searchField);
-					const searchedData = [];
-					await hits.forEach((hit) => {
-						searchedData.push(hit.document);
-					});
-					postData = searchedData;
+					if (searchField.length > 0) {
+						const hits = await searchArticles(searchField);
+						const searchedData = [];
+						await hits.forEach((hit) => {
+							searchedData.push(hit.document);
+						});
+						postData = searchedData;
+					}
 				}}
 			/>
 		</div>

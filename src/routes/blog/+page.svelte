@@ -10,7 +10,6 @@
 		await insertArticles(data.posts);
 	});
 	let postData = [...data.posts];
-	$: console.log(searchField.length);
 	$: if (searchField.length === 0) {
 		postData = [...data.posts];
 	}
@@ -53,12 +52,11 @@
 					await hits.forEach((hit) => {
 						searchedData.push(hit.document);
 					});
-						postData = searchedData;
-
+					postData = searchedData;
 				}}
 			/>
 		</div>
-		{#if postData.length < 1}
+		{#if searchField.length > 0 && postData.length < 1}
 			<div class="alert shadow-lg mt-5">
 				<div>
 					<svg

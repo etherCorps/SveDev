@@ -1,7 +1,19 @@
 <script>
 	import { siteName, siteDescription } from '$lib/constants';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import { insertArticles, searchArticles, createArticleDB } from '$lib/search';
 	export let data;
+	let searchField = '';
+	onMount(async () => {
+		await createArticleDB();
+		await insertArticles(data.posts);
+	});
+	let postData = [...data.posts];
+	$: console.log(searchField.length);
+	$: if (searchField.length === 0) {
+		postData = [...data.posts];
+	}
 </script>
 
 <svelte:head>
@@ -30,10 +42,28 @@
 				of Learning
 			</p>
 		</header>
+		<div class="mt-7 ">
+			<input
+				type="text"
+				bind:value={searchField}
+				placeholder="Search articles"
+				class="input input-bordered w-full input-md"
+				on:input={async () => {
+					const hits = await searchArticles(searchField);
+					const searchedData = [];
+					await hits.forEach((hit) => {
+						searchedData.push(hit.document);
+					});
+					if (searchedData.length > 0) {
+						postData = searchedData;
+					}
+				}}
+			/>
+		</div>
 		<div class="mt-16 sm:mt-20">
 			<div class="md:border-l md:border-base-content md:pl-6">
 				<div class="flex max-w-3xl flex-col space-y-16">
-					{#each data.posts as post}
+					{#each postData as post}
 						<article class="md:grid md:grid-cols-4 md:items-baseline">
 							<div class="md:col-span-3 group relative flex flex-col items-start">
 								<h2 class="text-base font-semibold tracking-tight text-base-content">

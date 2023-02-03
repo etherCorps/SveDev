@@ -11,7 +11,8 @@ export const handle = (async ({ event, resolve }) => {
 	}
 	if (theme) {
 		return resolve(event, {
-			transformPageChunk: ({ html }) => html.replace('data-theme=""', `data-theme="${theme}"`)
+			transformPageChunk: ({ html }) =>
+				html.replace('data-theme="bumblebee"', `data-theme="${theme}"`)
 		});
 	}
 	return resolve(event);
